@@ -3,8 +3,6 @@ import { Module } from '@nestjs/common'
 import { GatewayIntentBits } from 'discord.js'
 import { AppCommands } from './app.commands'
 import { AppUpdate } from './app.update'
-import { APP_INTERCEPTOR } from '@nestjs/core'
-import { ErrorsInterceptor } from './errors.interceptor'
 
 @Module({
   imports: [
@@ -17,7 +15,6 @@ import { ErrorsInterceptor } from './errors.interceptor'
   providers: [
     AppUpdate,
     AppCommands,
-    { provide: APP_INTERCEPTOR, useClass: ErrorsInterceptor }
   ]
 })
 export class AppModule {}
